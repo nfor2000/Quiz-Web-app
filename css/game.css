@@ -1,0 +1,43 @@
+.Mcq-box{
+     display: flex;
+     flex-direction: column;
+     width: 100%;
+}
+.Mcq-box h2{
+     margin-bottom: 2rem;
+     width: 100%;
+     padding: 1rem;
+}
+p,
+span{
+     font-size: 2rem;
+     padding: 1rem 2rem;
+     border-bottom: 1px solid #5e9ba3;
+}
+.option{
+     display: flex;
+     transition: 0.3s ease;
+}
+.option:hover{
+     transform: translateX(1rem);
+     cursor: pointer;
+}
+.choice_letter{
+     display: flex;
+     background-color: #5e9ba3;
+     color:#fff;
+     width: 12%;
+     align-items: center;
+     border-color:#fff ;
+     justify-content: center;
+}
+.choice{
+     background-color: #fff;
+     width: 88%;
+}
+.correct{
+     background-color: green;
+}
+.wrong{
+     background-color: red;
+}
