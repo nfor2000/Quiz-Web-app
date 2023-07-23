@@ -58,6 +58,7 @@ let index;
 let answer;
 let score = 0 ;
 let questionNumber = 1;
+let highscore = JSON.parse(localStorage.getItem('Highscore'));
 
 window.addEventListener("DOMContentLoaded", getQuestion);
 
@@ -108,6 +109,9 @@ function getQuestion() {
           })
           questionNumber ++;
      } else {
+          if(highscore < score){
+               localStorage.setItem("Highscore",JSON.stringify(score))
+          }
           localStorage.setItem("score", JSON.stringify(score))
           window.location.assign('../end.html')
      }
