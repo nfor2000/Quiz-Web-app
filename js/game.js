@@ -1,4 +1,4 @@
-var Questions = [
+const Questions = [
      {
           "quest": "HTML stands for __________",
           "A": "HyperText Markup Language",
@@ -50,25 +50,31 @@ var Questions = [
 ]
 const question = document.getElementById("question")
 const choices = Array.from(document.querySelectorAll(".choice"));
+const progressBar = document.querySelector(".progress-bar");
 
-let NewQuestion = Questions;
+let NewQuestion = [...Questions];
 let Question;
 let index;
 let answer;
+let score = 0 ;
+let questionNumber = 1;
 
 window.addEventListener("DOMContentLoaded", getQuestion);
 
 
 choices.forEach(choice => {
      choice.addEventListener("click", () => {
+          progressBar.style.width = `${((questionNumber-1)/Questions.length)*100}%`
           if (answer === choice.dataset.letter) {
                choice.classList.add("correct");
+               score += 10;
+               document.getElementById("score").innerText = `Score: ${score}`
           } else {
                choice.classList.add("wrong");
           }
           setTimeout(() => {
-               NewQuestion = splicearray(NewQuestion, index)
-               getQuestion()
+               NewQuestion = splicearray(NewQuestion, index);
+               getQuestion();
                choice.classList.remove("correct");
                choice.classList.remove("wrong");
           }, 1000)
@@ -77,7 +83,8 @@ choices.forEach(choice => {
 
 
 function getQuestion() {
-     if (NewQuestion.length > 1) {
+     if (NewQuestion.length > 0) {
+          document.getElementById("question_number").innerText = `${questionNumber}/${Questions.length}`
           index = generateRandomIndex();
           Question = NewQuestion[index];
           answer = Question.answer;
@@ -98,8 +105,10 @@ function getQuestion() {
                          break;
                }
           })
+          questionNumber ++;
      } else {
-          window.location.assign('../app.html')
+          localStorage.setItem("score", JSON.stringify(score))
+          window.location.assign('../end.html')
      }
 
 }

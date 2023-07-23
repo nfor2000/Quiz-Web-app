@@ -51,3 +51,13 @@ h4{
 .btn:hover{
      transform: translateY(4px);
 }
+#scoreBoard{
+     width: 150px;
+     height: 150px;
+     font-size: 8rem;
+     margin-top: 2rem;
+     text-align: center;
+     border: 1px solid;
+     line-height: 150px;
+     border-radius: 50%;
+}
