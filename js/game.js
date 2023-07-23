@@ -69,6 +69,7 @@ choices.forEach(choice => {
                choice.classList.add("correct");
                score += 10;
                document.getElementById("score").innerText = `Score: ${score}`
+               
           } else {
                choice.classList.add("wrong");
           }
