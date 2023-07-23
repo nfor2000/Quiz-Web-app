@@ -113,7 +113,7 @@ function getQuestion() {
                localStorage.setItem("Highscore",JSON.stringify(score))
           }
           localStorage.setItem("score", JSON.stringify(score))
-          window.location.assign('../end.html')
+          window.location.assign('end.html')
      }
 
 }
